@@ -9,10 +9,21 @@ import javax.security.auth.login.LoginException;
 
 public class Bot {
 
-    public static void main(String[] args) throws RateLimitedException {
+    /**
+     * Character which starts all the bot commands
+     * For example, if "!", commands look like: !ping
+     */
+    public static final String CMD = ".";
+
+    /**
+     * Secret bot token, generated from Discord developer pages
+     */
+    private static final String SECRET_TOKEN = "";
+
+    public static void main(String[] args) {
         try {
             JDA jda = new JDABuilder(AccountType.BOT)
-                    .setToken("")
+                    .setToken(SECRET_TOKEN)
                     .addEventListener(new MyListener())
                     .buildBlocking();
         } catch (LoginException | InterruptedException e) {
