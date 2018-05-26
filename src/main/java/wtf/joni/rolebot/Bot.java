@@ -1,12 +1,13 @@
 package wtf.joni.rolebot;
 
 import net.dv8tion.jda.core.AccountType;
-import net.dv8tion.jda.core.JDA;
 import net.dv8tion.jda.core.JDABuilder;
-import net.dv8tion.jda.core.exceptions.RateLimitedException;
 
 import javax.security.auth.login.LoginException;
 
+/**
+ * Main class of the bot
+ */
 public class Bot {
 
     /**
@@ -22,9 +23,9 @@ public class Bot {
 
     public static void main(String[] args) {
         try {
-            JDA jda = new JDABuilder(AccountType.BOT)
+            new JDABuilder(AccountType.BOT)
                     .setToken(SECRET_TOKEN)
-                    .addEventListener(new MyListener())
+                    .addEventListener(new PingListener())
                     .buildBlocking();
         } catch (LoginException | InterruptedException e) {
             e.printStackTrace();
