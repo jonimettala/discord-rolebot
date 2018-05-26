@@ -7,7 +7,6 @@ plugins {
 mainClassName = 'wtf.joni.rolebot.Bot'
 
 version '1.0'
-def jdaVersion = '3.6.0_367'
 
 sourceCompatibility = 1.8
 
@@ -16,7 +15,7 @@ repositories {
 }
 
 dependencies {
-    compile "net.dv8tion:JDA:$jdaVersion"
+    compile "net.dv8tion:JDA:3.6.0_367"
 }
 
 compileJava.options.encoding = 'UTF-8'
