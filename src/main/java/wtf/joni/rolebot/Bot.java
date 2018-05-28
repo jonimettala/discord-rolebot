@@ -31,6 +31,12 @@ public class Bot {
      */
     public static String CMD;
 
+    /**
+     * Master of the bot - user which has all permissions to the bot
+     * Imported from settings.json
+     */
+    public static String MASTER_USER;
+
     public static void main(String[] args) {
         JSONParser jsonParser = new JSONParser();
         try {
@@ -38,8 +44,9 @@ public class Bot {
             File f = new File(path.getFile());
             JSONObject jsonObject = (JSONObject) jsonParser.parse(new BufferedReader(new FileReader(f)));
 
-            SECRET_TOKEN = (String) jsonObject.get("Token");
-            CMD = (String) jsonObject.get("CommandKey");
+            SECRET_TOKEN = (String) jsonObject.get("token");
+            CMD = (String) jsonObject.get("commandKey");
+            MASTER_USER = (String) jsonObject.get("masterUser");
 
         } catch (Exception e) {
             e.printStackTrace();

@@ -18,9 +18,9 @@ public class PingListener extends ListenerAdapter {
         String content = message.getContentRaw();
         if (content.equals(Bot.CMD + "ping")) {
             MessageChannel channel = event.getChannel();
-            // Joni 73083635258896384
-            if (event.getAuthor().getId().equals("73083635258896384"))
-                channel.sendMessage("Hello master <@73083635258896384>!").queue();
+            // Master
+            if (event.getAuthor().getId().equals(Bot.MASTER_USER))
+                channel.sendMessage("Hello master <@" + Bot.MASTER_USER + ">!").queue();
             // Trooper 214489850701807616
             else if (event.getAuthor().getId().equals("214489850701807616"))
                 channel.sendMessage("OMG HI <@214489850701807616>!").queue();
